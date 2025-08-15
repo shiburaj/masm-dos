@@ -89,6 +89,8 @@ DEBUG.EXE ADDWI.EXE
 15. NOT Operation [View](codes/NOT.ASM)
 16. NOT Operation with Input from User [View](codes/NOTWI.ASM)
 17. Implementation of two 8-bit BCD addition with accepting input from keyboard and displaying output on monitor using INT 21H interrupts [View](codes/BCDADD.ASM)
+18. Implement I/O interfacing using inbuilt speakers [View](codes/ALARM.ASM)
+19. Implement I/O interfacing using inbuilt speakers different tones [View](codes/ALARMKEY.ASM)
 
 ## 8086 Instruction Set
 The instruction set is basically the big menu of commands the CPU understands. Each instruction belongs to a certain category depending on what it does.

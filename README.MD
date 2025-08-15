@@ -71,6 +71,24 @@ DEBUG.EXE ADDWI.EXE
 | `W`     | Write memory to file                           | `W`                                                    |
 | `Q`     | Quit debug                                     | `Q`                                                    |
 
+## List of Codes Samples
+1. Add two 8bit numbers [View](codes/ADD.ASM)
+2. Add two 8bit numbers with Input from User [View](codes/ADDWI.ASM)
+3. Subtract two 8bit numbers [View](codes/SUB.ASM)
+4. Subtract two 8bit numbers with Input from User [View](codes/SUBWI.ASM)
+5. Multiply two 8bit numbers [View](codes/MUL.ASM)
+6. Multiply two 8bit numbers with Input from User [View](codes/MULWI.ASM)
+7. Divide two 8bit numbers [View](codes/DIV.ASM)
+8. Divide two 8bit numbers with Input from User [View](codes/DIVWI.ASM)
+9. AND Operation [View](codes/AND.ASM)
+10. AND Operation with Input from User [View](codes/ANDWI.ASM)
+11. OR Operation [View](codes/OR.ASM)
+12. OR Operation with Input from User [View](codes/ORWI.ASM)
+13. XOR Operation [View](codes/XOR.ASM)
+14. XOR Operation with Input from User [View](codes/XORWI.ASM)
+15. NOT Operation [View](codes/NOT.ASM)
+16. NOT Operation with Input from User [View](codes/NOTWI.ASM)
+17. Implementation of two 8-bit BCD addition with accepting input from keyboard and displaying output on monitor using INT 21H interrupts [View](codes/BCDADD.ASM)
 
 ## 8086 Instruction Set
 The instruction set is basically the big menu of commands the CPU understands. Each instruction belongs to a certain category depending on what it does.

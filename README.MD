@@ -91,6 +91,11 @@ DEBUG.EXE ADDWI.EXE
 17. Implementation of two 8-bit BCD addition with accepting input from keyboard and displaying output on monitor using INT 21H interrupts [View](codes/BCDADD.ASM)
 18. Implement I/O interfacing using inbuilt speakers [View](codes/ALARM.ASM)
 19. Implement I/O interfacing using inbuilt speakers different tones [View](codes/ALARMKEY.ASM)
+20. Draw a Pixel [View](codes/PIXEL.ASM)
+21. Draw a Line [View](codes/LINE.ASM)
+22. Draw a Square [View](codes/SQUARE.ASM)
+23. Draw a Rectangle [View](codes/RECT.ASM)
+24. Draw a Circle [View](codes/CIRCLE.ASM)
 
 ## 8086 Instruction Set
 The instruction set is basically the big menu of commands the CPU understands. Each instruction belongs to a certain category depending on what it does.
@@ -336,6 +341,45 @@ END MAIN
 | Input string      | 0Ah          | AH=0Ah, DX=buffer                          |
 | Output char       | 02h          | AH=02h, DL = ASCII                         |
 | Output string     | 09h          | AH=09h, DX = string address (ends with \$) |
+
+## All DOS Functions
+
+On the 8086 and DOS systems, INT (software interrupt) is like calling into the operating system’s API. `INT 21h` specifically jumps into MS-DOS services (file I/O, keyboard, screen, etc.). You load AH with the function number (like a “command code”), and other registers with parameters. Below are some of the Function codes.
+
+| Function | AH  | Purpose                        | Notes                               |
+| -------- | --- | ------------------------------ | ----------------------------------- |
+| `01h`    | 01h | Read char from keyboard (echo) | Returns ASCII in AL                 |
+| `02h`    | 02h | Display single char in DL      | DL = char                           |
+| `09h`    | 09h | Display `$`-terminated string  | DX = offset of string               |
+| `0Ah`    | 0Ah | Read string (buffered)         | DX = buffer (1st byte = max length) |
+| `4Ch`    | 4Ch | Exit program                   | AL = return code                    |
+| `0Eh`    | 0Eh | Select default drive           | DL = drive number                   |
+| `19h`    | 19h | Get current drive              | AL = drive (0=A, 1=B, …)            |
+| `25h`    | 25h | Set interrupt vector           | AL=int#, DS\:DX=ISR address         |
+| `35h`    | 35h | Get interrupt vector           | AL=int#, ES\:BX=ISR address         |
+| `3Dh`    | 3Dh | Open file                      | AL=mode, DX=filename                |
+| `3Eh`    | 3Eh | Close file                     | BX=file handle                      |
+| `3Fh`    | 3Fh | Read file                      | BX=handle, CX=count, DX=buffer      |
+| `40h`    | 40h | Write file                     | BX=handle, CX=count, DX=buffer      |
+| `41h`    | 41h | Delete file                    | DX=filename                         |
+| `42h`    | 42h | Move file pointer              | BX=handle, CX\:DX=offset            |
+| `56h`    | 56h | Rename file                    | DS\:DX=old, ES\:DI=new              |
+
+## ASCII Table
+
+![ASCII Table](images/ASCII-Table.png)
+
+## Common Interrupts on 8086/DOS
+
+| INT No.     | Service                   | Example Uses                                                     |
+| ----------- | ------------------------- | ---------------------------------------------------------------- |
+| **INT 10h** | **BIOS Video Services**   | Set video mode, print character, scroll screen, plot pixel       |
+| **INT 14h** | Serial Port               | Init, read/write from COM ports                                  |
+| **INT 15h** | Misc. BIOS                | Wait (delay), system configuration, A20 control                  |
+| **INT 16h** | Keyboard Services         | Read keystroke, check key press, get scan codes                  |
+| **INT 17h** | Printer Services          | Send character to printer                                        |
+| **INT 1Ah** | System Clock/Timer        | Get/Set system time & date, BIOS tick counter                    |
+| **INT 21h** | **DOS Services**          | File handling, console I/O, memory allocation, terminate program |
 
 
 ## Other Tools
